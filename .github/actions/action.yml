@@ -1,0 +1,5 @@
+name: rudymap
+description: 'create rudymap files'
+runs:
+  using: 'docker'
+  image: '../../Dockerfile'

@@ -5,8 +5,13 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    container:
-        image: osmtw/rudymap:tmp
+    #container:
+    #  image: osmtw/rudymap:tmp
     steps:
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: foo
-        run: osmconvert --help
+        uses: ./.github/actions
+        with:
+          entrypoint: /bin/echo
+          args: success
