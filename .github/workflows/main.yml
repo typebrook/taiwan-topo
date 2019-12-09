@@ -1,4 +1,4 @@
-name: test
+name: mapsforge
 
 on: [push]
 
@@ -11,5 +11,9 @@ jobs:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
-      - name: foo
-        run: sudo make SUITE=taipei mapsforge
+      - name: make-taipei
+        run: sudo make SUITE=taiwan mapsforge
+      - uses: actions/upload-artifact@master
+        with:
+          name: "$(date)"
+          path: install/MOI_OSM_Taipei_TOPO_Rudy.map
